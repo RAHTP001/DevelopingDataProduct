@@ -1,0 +1,25 @@
+---
+title: "Untitled"
+author: "RAHTP001"
+date: "23 January 2018"
+output: 
+  html_document: 
+    keep_md: yes
+---
+```{r}
+library(leaflet)
+```
+
+```{r,echo=FALSE}
+set.seed(1)
+SA_cities<- data.frame(latitude=runif(10, min= -34.9295, max= -34.9175),longitude= runif(10, min= 138.6007, max= 138.6550))
+```
+
+Showing Locations of Pub's in Adelaide
+
+
+```{r,echo=FALSE}
+SA_cities %>% leaflet() %>% addTiles() %>% addCircleMarkers(clusterOptions = markerClusterOptions())
+
+
+```
